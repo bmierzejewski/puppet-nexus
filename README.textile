@@ -3,7 +3,6 @@ h1. Nexus Puppet module
 h2. Requires
 
 * @curl@ module
-* "@tomcat@ module":https://github.com/soluvas/puppet-tomcat
 * @unzip@ package
 * @openjdk-7-jre-headless@ package or similar
 
