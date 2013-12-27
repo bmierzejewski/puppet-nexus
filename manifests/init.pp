@@ -13,15 +13,17 @@
 # [Remember: No empty lines between comments and class definition]
 class nexus (
   $version = '2.0',
-  $mirror_url = 'http://www.sonatype.org/downloads/'
+  $mirror_url = 'http://www.sonatype.org/downloads/',
 	$tomcat_webapps_dir = '/var/lib/tomcat6/webapps/'
 ) {
   $download_file = "nexus-${version}.war"
   $download_url = "${mirror_url}${download_file}"
-	if assert($tomcat::webapps_dir)
-	  $dir = "${tomcat::webapps_dir}/nexus"
-	else
+
+	if defined("tomcat::webapps_dir") {
+    $dir = "${tomcat::webapps_dir}/nexus"
+  } else {
     $dir = "${tomcat_webapps_dir}/nexus"
+  }
   
 	$work_dir = '/home/nexus'
   
